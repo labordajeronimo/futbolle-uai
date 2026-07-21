@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Futbolle</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dark">
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="main-title">FUTBOLLE</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Volver al Juego</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="card-section">
+            <h2 class="section-title">Formulario de Contacto</h2>
+            
+            <div id="contact-error-box" class="error-box is-hidden"></div>
+
+            <form id="form-contact" class="user-form" novalidate>
+                <label for="input-contact-name">Nombre Alfanumérico:</label>
+                <input type="text" id="input-contact-name" class="form-input">
+
+                <label for="input-contact-email">Correo Electrónico:</label>
+                <input type="text" id="input-contact-email" class="form-input">
+
+                <label for="input-contact-message">Mensaje (más de 5 caracteres):</label>
+                <textarea id="input-contact-message" class="form-textarea" rows="4"></textarea>
+
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>

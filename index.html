@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbolle - Juego de Adivinar Jugadores</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dark">
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="main-title">FUTBOLLE</h1>
+            <nav class="main-nav">
+                <button id="btn-theme-toggle" class="btn-secondary">Modo Claro/Oscuro</button>
+                <button id="btn-history" class="btn-secondary">Historial</button>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+                <a href="https://github.com/TU_USUARIO/futbolle-uai" target="_blank" class="nav-link">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Formulario de Nombre del Jugador Humano -->
+        <section id="sec-user-init" class="card-section">
+            <h2 class="section-title">Iniciar Partida</h2>
+            <form id="form-user-name" class="user-form">
+                <label for="input-user-name">Ingresá tu nombre para comenzar (mínimo 3 letras):</label>
+                <input type="text" id="input-user-name" class="form-input" placeholder="Ej: Jerónimo" required>
+                
+                <div class="difficulty-selector">
+                    <label>Dificultad:</label>
+                    <select id="select-difficulty" class="form-select">
+                        <option value="easy">Fácil (Foto desenfocada)</option>
+                        <option value="medium">Medio (Pistas progresivas)</option>
+                        <option value="hard">Difícil (Sin foto ni pistas)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Jugar</button>
+            </form>
+        </section>
+
+        <!-- Tablero de Juego (Oculto al inicio) -->
+        <section id="sec-game-board" class="game-section is-hidden">
+            
+            <div class="game-status-bar">
+                <div class="status-box">
+                    <span>Jugador: </span>
+                    <strong id="display-player-name">-</strong>
+                </div>
+                <div class="status-box">
+                    <span>Intentos Restantes: </span>
+                    <strong id="display-attempts">8</strong>/8
+                </div>
+                <div class="status-box">
+                    <span>Tiempo: </span>
+                    <strong id="display-timer">00:00</strong>
+                </div>
+                <button id="btn-restart" class="btn-warning">Reiniciar Partida</button>
+            </div>
+
+            <!-- Pista de Imagen (Modo Fácil) -->
+            <div id="container-secret-photo" class="photo-container is-hidden">
+                <img id="img-secret-player" class="secret-photo blur-level-8" src="" alt="Jugador Secreto">
+            </div>
+
+            <!-- Buscador y Autocompletado -->
+            <div class="search-container">
+                <input type="text" id="input-search-player" class="form-input" placeholder="Escribí el nombre de un jugador..." autocomplete="off">
+                <ul id="list-autocomplete" class="autocomplete-list is-hidden"></ul>
+            </div>
+
+            <!-- Encabezados del Tablero -->
+            <div class="board-header">
+                <span>Nacionalidad</span>
+                <span>Club</span>
+                <span>Posición</span>
+                <span>Edad</span>
+                <span>Overall</span>
+                <span>Altura</span>
+            </div>
+
+            <!-- Contenedor Dinámico de Intentos -->
+            <div id="container-attempts" class="attempts-container"></div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal Mensajes / Errores / Fin de Juego -->
+    <div id="modal-game-over" class="modal-backdrop is-hidden">
+        <div class="modal-card">
+            <h2 id="modal-title" class="modal-title">Resultado</h2>
+            <p id="modal-message" class="modal-text"></p>
+            <div id="modal-secret-info" class="secret-info"></div>
+            <button id="btn-modal-close" class="btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Modal Historial LocalStorage -->
+    <div id="modal-history" class="modal-backdrop is-hidden">
+        <div class="modal-card modal-large">
+            <h2 class="modal-title">Historial de Partidas</h2>
+            <div class="history-controls">
+                <button id="btn-sort-date" class="btn-secondary">Ordenar por Fecha</button>
+                <button id="btn-sort-attempts" class="btn-secondary">Ordenar por Intentos</button>
+            </div>
+            <ul id="list-history" class="history-list"></ul>
+            <button id="btn-close-history" class="btn-primary">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Scripts ES5 al final del body -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
