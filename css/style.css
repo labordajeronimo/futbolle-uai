@@ -1,6 +1,4 @@
-/* ==========================================================================
-   ESTILOS GENERALES Y VARIABLES DE TEMA
-   ========================================================================== */
+/* ESTILOS GENERALES Y VARIABLES DE TEMA */
 
 body.theme-dark {
     background-color: #121212;
@@ -18,9 +16,7 @@ body.theme-light {
     display: none !important;
 }
 
-/* ==========================================================================
-   LAYOUT Y CONTENEDORES (FLEXBOX)
-   ========================================================================== */
+/* LAYOUT Y CONTENEDORES (FLEXBOX) */
 
 .main-header {
     display: flex;
@@ -86,9 +82,7 @@ body.theme-light {
     gap: 20px;
 }
 
-/* ==========================================================================
-   COMPONENTES Y FORMULARIOS
-   ========================================================================== */
+/* COMPONENTES Y FOMULARIOS */
 
 .user-form {
     display: flex;
@@ -134,9 +128,7 @@ body.theme-light {
     cursor: pointer;
 }
 
-/* ==========================================================================
-   TABLERO Y BUSCADOR
-   ========================================================================== */
+/* TABLERO Y BUSCADOR */
 
 .game-status-bar {
     display: flex;
@@ -267,7 +259,7 @@ body.theme-light {
     margin-bottom: 10px;
 }
 
-/* MEDIA QUERIES (Siempre al final) */
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;

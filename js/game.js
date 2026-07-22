@@ -135,7 +135,6 @@ function handleGuess(guessPlayer) {
 
     updatePhotoBlur();
 
-    // Acierto
     if (guessPlayer.id === secretPlayer.id) {
         clearInterval(timerInterval);
         saveGameToHistory(true);
@@ -143,7 +142,6 @@ function handleGuess(guessPlayer) {
         return;
     }
 
-    // Derrota
     if (attemptsLeft === 0) {
         clearInterval(timerInterval);
         saveGameToHistory(false);
