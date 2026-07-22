@@ -89,16 +89,20 @@ function renderHistory(sortBy) {
         listHistory.appendChild(li);
     }
 }
-
 function updatePhotoBlur() {
+    var imgEl = document.getElementById('img-secret-player');
+    if (!imgEl) return;
+
     if (difficultyLevel === 'easy') {
-        containerSecretPhoto.classList.remove('is-hidden')
-        imgSecretPlayer.className = 'secret-photo blur-level-' + (attemptsLeft * 2);
+        containerSecretPhoto.classList.remove('is-hidden');
+        
+        var blurAmount = attemptsLeft * 3;
+        
+        imgEl.setAttribute('style', 'filter: blur(' + blurAmount + 'px) !important; -webkit-filter: blur(' + blurAmount + 'px) !important; width: 140px; height: 140px; object-fit: cover; border-radius: 12px;');
     } else {
         containerSecretPhoto.classList.add('is-hidden');
     }
 }
-
 function initGame() {
     attemptsLeft = 8;
     attemptsHistory = [];
