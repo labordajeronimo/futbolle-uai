@@ -111,7 +111,7 @@ function initGame() {
     getRandomPlayer(
         function (player) {
             secretPlayer = player;
-            imgSecretPlayer.src = secretPlayer.photo;
+            imgSecretPlayer.src = obtenerUrlFotoProxy(secretPlayer.photo);
             startTimer();
         },
         function (err) {

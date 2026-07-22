@@ -45,3 +45,11 @@ function renderAttemptRow(container, guessPlayer, secretPlayer) {
 
     container.appendChild(row);
 }
+
+function obtenerUrlFotoProxy(urlOriginal) {
+    if (!urlOriginal) {
+        return '';
+    }
+    // Usa un proxy de imagenes publico que saltea el bloqueo ORB/CORS de SoFIFA
+    return 'https://images.weserv.nl/?url=' + encodeURIComponent(urlOriginal);
+}
