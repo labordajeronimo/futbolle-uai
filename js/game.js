@@ -92,7 +92,7 @@ function renderHistory(sortBy) {
 
 function updatePhotoBlur() {
     if (difficultyLevel === 'easy') {
-        containerSecretPhoto.classList.remove('is-hidden');
+        containerSecretPhoto.classList.remove('is-hidden')
         imgSecretPlayer.className = 'secret-photo blur-level-' + (attemptsLeft * 2);
     } else {
         containerSecretPhoto.classList.add('is-hidden');

@@ -215,6 +215,7 @@ body.theme-light {
 .secret-photo {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     border-radius: 50%;
     transition: filter 0.3s ease;
 }
