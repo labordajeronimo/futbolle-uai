@@ -90,18 +90,27 @@ function renderHistory(sortBy) {
     }
 }
 function updatePhotoBlur() {
-    var imgEl = document.getElementById('img-secret-player');
-    if (!imgEl) return;
-
-    if (difficultyLevel === 'easy') {
-        containerSecretPhoto.classList.remove('is-hidden');
-        
-        var blurAmount = attemptsLeft * 3;
-        
-        imgEl.setAttribute('style', 'filter: blur(' + blurAmount + 'px) !important; -webkit-filter: blur(' + blurAmount + 'px) !important; width: 140px; height: 140px; object-fit: cover; border-radius: 12px;');
-    } else {
+    // Si no estamos en modo facil, ocultamos el contenedor y salimos
+    if (difficultyLevel !== 'easy') {
         containerSecretPhoto.classList.add('is-hidden');
+        return;
     }
+
+    // Aseguramos que el contenedor sea visible
+    containerSecretPhoto.classList.remove('is-hidden');
+    
+    // Buscamos la etiqueta img específica dentro del contenedor
+    var currentImg = containerSecretPhoto.querySelector('img');
+    if (!currentImg) return;
+
+    // Calculamos el desenfoque en base a INTENTOS RESTANTES
+    // 8 intentos restantes = blur máximo (24px)
+    // 0 intentos restantes = blur nulo (0px)
+    var blurPixels = attemptsLeft * 3;
+    
+    // Aplicamos el filtro progresivo directo a la etiqueta img
+    currentImg.style.filter = 'blur(' + blurPixels + 'px)';
+    currentImg.style.webkitFilter = 'blur(' + blurPixels + 'px)';
 }
 function initGame() {
     attemptsLeft = 8;
